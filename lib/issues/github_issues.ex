@@ -1,6 +1,9 @@
 defmodule Issues.GithubIssues do
   @user_agent  [ {"User-agent", "Elixir dave@pragprog.com"} ]
 
+  # use a module attribute to fetch the value at compile time
+  @github_url Application.get_env(:issues, :github_url)
+
   @spec fetch(any, any) :: {:error, any} | {:ok, any}
   def fetch(user, project) do
     issues_url(user, project)
@@ -10,7 +13,7 @@ defmodule Issues.GithubIssues do
 
   @spec issues_url(any, any) :: <<_::64, _::_*8>>
   def issues_url(user, project) do
-    "https://api.github.com/repos/#{user}/#{project}/issues"
+    "#{@github_url}/repos/#{user}/#{project}/issues"
   end
 
   @spec handle_response(
