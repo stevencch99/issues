@@ -1,21 +1,31 @@
 # Issues
 
-**TODO: Add description**
+> Practice project from Programming Elixir - Dave Thomas
+
+Command-Line tool to list issues from a GitHub project.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `issues` to your list of dependencies in `mix.exs`:
+Package the comand-line executable:
 
-```elixir
-def deps do
-  [
-    {:issues, "~> 0.1.0"}
-  ]
-end
+```sh
+$ mix escript.build
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/issues>.
+## Usage
 
+The basic command:
+
+```
+$ ./issues <user> <project> [count | 4]
+```
+
+Example:
+
+```sh
+# See help
+$ ./issues -h
+
+# List 5 issues from elixir-lang/elixir project
+$ ./issues elixir-lang elixir 5
+```
